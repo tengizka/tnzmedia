@@ -39,6 +39,7 @@ check('нет следов старого innerHTML-рендера', !/window\._
 
 console.log('\n— head, SEO, шеринг —');
 check('<html lang="ru">', /<html lang="ru"/.test(html));
+check('тема задана в разметке (работает и без JS)', /<html[^>]*data-theme="[a-z]+"/.test(html) && cssOf(DIST).includes('--bg:') && cssOf(DIST).includes('[data-theme='));
 check('meta viewport с viewport-fit', /viewport-fit=cover/.test(html));
 check('description', new RegExp(`name="description" content="[^"]{40,}"`).test(html));
 check('og:title / og:description / og:image', ['og:title', 'og:description', 'og:image'].every((k) => html.includes(`property="${k}"`)));
