@@ -1,0 +1,37 @@
+{
+  "brand": "TNZ Media",
+  "handle": "@tengizka",
+  "legalName": "tengizka",
+  "title": "TNZ Media — дизайн, брендинг, сайты и Telegram-приложения",
+  "description": "Студия одного человека: айдентика, лендинги и Telegram Mini Apps под ключ. 7 кейсов, 14 услуг, честные цены от 1 500 ₽.",
+  "role": "Дизайнер и разработчик",
+  "status": "Открыт для заказов",
+  "hero": {
+    "eyebrow": "дизайн · брендинг · разработка",
+    "lead": "Собираю бренды, которые невозможно перепутать с чужими",
+    "sub": "Айдентика, лендинги и Telegram-приложения под ключ — от идеи до готового продукта, который можно показать клиентам.",
+    "signature": "tengizka"
+  },
+  "contacts": {
+    "telegram": "https://t.me/teng1zka",
+    "telegramHandle": "@teng1zka",
+    "instagram": "https://www.instagram.com/tengizka",
+    "email": ""
+  },
+  "process": [
+    { "n": "01", "t": "Бриф", "d": "15 минут в Telegram: задача, сроки, референсы, что уже есть." },
+    { "n": "02", "t": "Концепция", "d": "Идея и направление. Покажу 2 пути, выберем один — до правок." },
+    { "n": "03", "t": "Дизайн", "d": "Сборка макетов, 1–2 круга доработки, все исходники тебе." },
+    { "n": "04", "t": "Передача", "d": "Файлы, гайд по использованию, поддержка после запуска." }
+  ],
+  "legal": "",
+  "baseUrl": "https://tengizka.github.io/tnzmedia",
+  "ogImage": "og.png",
+  "themeDefault": "night",
+  "themes": [
+    { "id": "night", "name": "Ночь", "scheme": "dark" },
+    { "id": "bone", "name": "Кость", "scheme": "light" },
+    { "id": "moss", "name": "Мох", "scheme": "dark" },
+    { "id": "clay", "name": "Глина", "scheme": "light" }
+  ]
+}

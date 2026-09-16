@@ -1,0 +1,100 @@
+/* ─── TNZ Media · токены ────────────────────────────────────────────────
+   4 темы. Приглушённый текст — отдельными токенами (--muted), а НЕ opacity:
+   opacity смешивается с фоном непредсказуемо и ломает контраст.
+   Все пары text/muted/accent/on-accent посчитаны до ≥7:1, ≥4.5:1, ≥4.5:1, ≥4.5:1 (WCAG AA). */
+
+:root {
+  /* типографика: только гарнитуры с кириллицей (проверено по unicode-range Google Fonts) */
+  --f-display: 'Playfair Display', 'Times New Roman', Georgia, serif;
+  --f-body: 'Golos Text', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --f-brand: 'Unbounded', var(--f-body);
+  --f-script: 'Caveat', 'Segoe Script', cursive;
+
+  --t-hero: clamp(2.55rem, 11.2vw, 7.4rem);
+  --t-xl: clamp(2.05rem, 8vw, 4.5rem);
+  --t-h2: clamp(1.72rem, 5.4vw, 3.15rem);
+  --t-h3: clamp(1.12rem, 2.4vw, 1.4rem);
+  --t-lead: clamp(1.02rem, 1.5vw, 1.2rem);
+  --t-body: 1rem;
+  --t-small: 0.875rem;
+  --t-kicker: 0.75rem;
+
+  --gut: 20px;
+  --maxw: 1180px;
+  --r-s: 6px;
+  --r-m: 12px;
+  --r-l: 20px;
+  --r-pill: 999px;
+
+  --e-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --e-pop: cubic-bezier(0.34, 1.4, 0.5, 1);
+  --dur: 0.42s;
+
+  --tap: 44px; /* минимальная зона нажатия */
+  --safe-b: env(safe-area-inset-bottom, 0px);
+  --safe-l: env(safe-area-inset-left, 0px);
+  --safe-r: env(safe-area-inset-right, 0px);
+}
+
+/* ─── Ночь (тёмная по умолчанию для тех, кто в тёмной системе) ─── */
+[data-theme='night'] {
+  --bg: #0f0e12;
+  --surface: #17171d;
+  --raise: #201f28;
+  --line: #302e3b;
+  --text: #f1eee8;
+  --muted: #a9a3b8;
+  --accent: #bda9f0;
+  --on-accent: #17111f;
+  --tint: #231f33;
+  --shadow: 0 22px 44px -26px #000000cc;
+  --grain: 0.05;
+}
+/* ─── Кость (светлая) ─── */
+[data-theme='bone'] {
+  --bg: #f5f2eb;
+  --surface: #fffefa;
+  --raise: #ece7dc;
+  --line: #d9d0c0;
+  --text: #17150f;
+  --muted: #575049;
+  --accent: #4b30c8;
+  --on-accent: #ffffff;
+  --tint: #e6dfef;
+  --shadow: 0 20px 40px -28px #2a1f4d80;
+  --grain: 0.035;
+}
+/* ─── Мох (тёмная, зелёная) ─── */
+[data-theme='moss'] {
+  --bg: #0e1512;
+  --surface: #151d1a;
+  --raise: #1c2723;
+  --line: #2c3b36;
+  --text: #eaf1ea;
+  --muted: #9db4a8;
+  --accent: #7fd8a8;
+  --on-accent: #081a11;
+  --tint: #17302a;
+  --shadow: 0 22px 44px -26px #000000c0;
+  --grain: 0.05;
+}
+/* ─── Глина (светлая, тёплая) ─── */
+[data-theme='clay'] {
+  --bg: #f6efe6;
+  --surface: #fffaf4;
+  --raise: #f0e4d6;
+  --line: #ddc9b4;
+  --text: #241408;
+  --muted: #6a4527;
+  --accent: #a24512;
+  --on-accent: #fff6f0;
+  --tint: #f4e3d3;
+  --shadow: 0 20px 40px -28px #4a2a1080;
+  --grain: 0.04;
+}
+
+/* точки выбора темы — фиксированные цвета, не зависят от активной темы */
+.sw-night { --sw: #0f0e12; --sw2: #bda9f0; }
+.sw-bone { --sw: #f5f2eb; --sw2: #4b30c8; }
+.sw-moss { --sw: #0e1512; --sw2: #7fd8a8; }
+.sw-clay { --sw: #f6efe6; --sw2: #a24512; }

@@ -1,0 +1,61 @@
+/* ─── TNZ Media · движение ───────────────────────────────────────────
+   Всё анимируется на transform/opacity (без blur-фильтров и layout-сдвигов).
+   Один блок prefers-reduced-motion выключает целиком. */
+
+@keyframes wordIn {
+  from { opacity: 0; transform: translateY(0.55em) rotate(1.6deg); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes tick { to { transform: translateX(-50%); } }
+@keyframes live {
+  0% { box-shadow: 0 0 0 0 #35c07f99; }
+  70% { box-shadow: 0 0 0 7px #35c07f00; }
+  100% { box-shadow: 0 0 0 0 #35c07f00; }
+}
+@keyframes popIn {
+  from { opacity: 0; transform: translateY(14px) scale(0.97); }
+  to { opacity: 1; transform: none; }
+}
+
+/* hero: анимация на CSS, не зависит от JS и не ждёт window.load */
+.hero-lead .w {
+  display: inline-block; opacity: 0;
+  animation: wordIn 0.85s var(--e-out) forwards;
+  animation-delay: calc(var(--i) * 68ms + 90ms);
+}
+
+/* остальное: по одному IntersectionObserver-классу */
+.reveal { opacity: 0; transform: translateY(20px); }
+.reveal.in {
+  opacity: 1; transform: none;
+  transition: opacity 0.75s var(--e-out), transform 0.75s var(--e-out);
+}
+.reveal.in .w { animation: wordIn 0.7s var(--e-out) backwards; animation-delay: calc(var(--i) * 44ms); }
+.sec-head.reveal { transform: translateY(14px); }
+
+/* диалог кейса */
+dialog.case { border: 1px solid var(--line); }
+dialog.case[open] { animation: popIn 0.36s var(--e-out); }
+
+/* смена темы через View Transitions, если поддерживается */
+@supports (view-transition-name: none) {
+  ::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.42s; }
+}
+
+/* мягкое появление превью в строках портфолио */
+@media (hover: hover) and (min-width: 900px) {
+  .work-btn:hover .work-cover { box-shadow: inset 0 0 0 1px var(--accent); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001s !important;
+    scroll-behavior: auto !important;
+  }
+  .hero-lead .w, .reveal, .reveal.in { opacity: 1; transform: none; }
+  .ticker-in { animation: none; }
+  .dot-live { animation: none; }
+  .btn:hover, .pkg:hover, .clink:hover, .work-btn:hover { transform: none; }
+}

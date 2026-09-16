@@ -1,0 +1,22 @@
+{
+  "name": "tnzmedia",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Портфолио TNZ Media — статическая сборка + админка на Supabase",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "node tools/serve.mjs dist --watch",
+    "build": "node tools/build.mjs",
+    "serve": "node tools/serve.mjs dist",
+    "qa": "node qa/check.mjs",
+    "check": "npm run build && npm run qa",
+    "og": "node tools/og.mjs"
+  },
+  "devDependencies": {
+    "@supabase/supabase-js": "^2.58.0",
+    "esbuild": "^0.25.9"
+  }
+}
